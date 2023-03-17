@@ -135,13 +135,12 @@ def line_under_over(buf, line_no):
 
 # Transitions between sections.  From Sphinx python doc hierarchy.
 STATE_SEQ = (
-    ('#', True),
-    ('*', True),
+    ('=', True),
     ('=', False),
     ('-', False),
-    ('^', False),
+    ('+', False),
     ('"', False),
-    ('#', True))
+    ('=', True))
 NEXT_STATES = dict([(None, STATE_SEQ[0])] +
                    list(zip(STATE_SEQ[:-1], STATE_SEQ[1:])))
 PREV_STATES = dict([(None, STATE_SEQ[0])] +
